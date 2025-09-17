@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dio_net_api.Controllers
-{   
-    [ApiController]
-    [Route("api/[controller]")]
+{
+    //[ApiController]
+    [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
         [HttpGet("ObterDataHoraAtual")]
@@ -21,5 +21,13 @@ namespace dio_net_api.Controllers
             };
             return Ok(obj);
         }
+
+        [HttpGet("Apresentar/{nome}")]
+        public IActionResult Apresentar(string nome)
+        {
+            var mensagem = "Olá " + nome + ", seja bem vindo(a)!";
+            return Ok(new { mensagem });
+        }
+
     }
 }
